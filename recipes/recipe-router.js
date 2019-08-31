@@ -19,9 +19,9 @@ router.get('/', (req, res) => {
     const { id } = req.params;
   
     Recipess.getShoppingList(id)
-    .then(recipe => {
-      if (scheme) {
-        res.json(recipe);
+    .then(shopping => {
+      if (shopping) {
+        res.json(shopping);
       } else {
         res.status(404).json({ message: 'Could not find recipe with given id.' })
       }
