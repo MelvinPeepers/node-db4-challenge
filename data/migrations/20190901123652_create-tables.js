@@ -17,7 +17,9 @@ exports.up = function(knex) {
       .notNullable()
       .references('id')
       // this table must exist
-      .inTable('recipes');
+      .inTable('recipes')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE');
   })
   .createTable('recipe_ingredient', tbl => {
     tbl.integer('recipe_id')
@@ -25,13 +27,17 @@ exports.up = function(knex) {
     .notNullable()
     .references('id')
     // this table must exist
-    .inTable('recipes');
+    .inTable('recipes')
+    .onDelete('CASCADE')
+    .onUpdate('CASCADE');
     tbl.integer('ingredient_id')
     .unsigned()
     .notNullable()
     .references('id')
     // this table must exist
-    .inTable('ingredients');
+    .inTable('ingredients')
+    .onDelete('CASCADE')
+    .onUpdate('CASCADE');
     tbl.integer('quantity')
     .unsigned()
     .notNullable()

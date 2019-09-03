@@ -13,12 +13,12 @@ router.get('/', (req, res) => {
       res.status(500).json({ message: 'Failed to get recipes' });
     });
   });
-  
+  // tested in PostMan
 
   router.get('/:id', (req, res) => {
     const { id } = req.params;
   
-    Recipess.getShoppingList(id)
+    Recipes.getShoppingList(id)
     .then(shopping => {
       if (shopping) {
         res.json(shopping);
@@ -30,6 +30,7 @@ router.get('/', (req, res) => {
       res.status(500).json({ message: 'Failed to get recipe' });
     });
   });
+    // tested in PostMan
   
   
   
